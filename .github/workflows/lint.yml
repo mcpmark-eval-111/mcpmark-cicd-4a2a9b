@@ -2,7 +2,7 @@ name: Code Linting
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -20,8 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Install ESLint globally
+      - name: Install ESLint
         run: npm install -g eslint
       
       - name: Run ESLint
         run: eslint src/**/*.js
+        continue-on-error: false
