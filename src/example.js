@@ -1,9 +1,10 @@
 const unusedVariable = "this will cause an error"
+const anotherUnused = 'test'
 
-function badExample() {
-    console.log("Double quotes instead of single")
-    const x = 5
-    return x
+function exampleFunction() {
+  console.log("This uses double quotes and no semicolon")
+  const x = 5
+  return x
 }
 
-badExample()
+exampleFunction()
